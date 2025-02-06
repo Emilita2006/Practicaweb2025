@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: logingadpalenque
+        uri: lb://logingadpalenque
+        predicates:
+        - Path=/api/usuarios/**
+        filters:
+        - StripPrefix=2      
+      - id: permisosgadpalenque
+        uri: lb://permisosgadpalenque
+        predicates:
+        - Path=/api/permisos/**
+        filters:
+        - StripPrefix=2
